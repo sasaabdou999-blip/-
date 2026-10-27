@@ -1,0 +1,29 @@
+services:
+  - type: worker
+    name: telegram-music-bot
+    runtime: docker
+    plan: 1c-2g
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeployTrigger: commit
+    maxShutdownDelaySeconds: 60
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: BOT_USERNAME
+        sync: false
+      - key: BOT_NAME
+        value: Music Bot
+      - key: SESSION_NAME
+        sync: false
+      - key: SUDO_USERS
+        sync: false
+      - key: DURATION_LIMIT
+        value: "240"
+      - key: DOWNLOADS_CACHE_LIMIT_MB
+        value: "1024"
