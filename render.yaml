@@ -1,6 +1,6 @@
 services:
   - type: worker
-    name: telegram-music-bot
+    name: sasa-music-bot
     runtime: docker
     plan: 1c-2g
     region: frankfurt
@@ -9,7 +9,7 @@ services:
     autoDeployTrigger: commit
     maxShutdownDelaySeconds: 60
     envVars:
-      # Required credentials — add secret values in the Render dashboard
+      # Required credentials — enter secret values in the Render dashboard
       - key: API_ID
         sync: false
       - key: API_HASH
@@ -25,7 +25,7 @@ services:
 
       # Bot display settings
       - key: BOT_NAME
-        value: Music Bot
+        value: Sasa Music Bot
       - key: ASSISTANT_NAME
         sync: false
       - key: OWNER_NAME
@@ -65,7 +65,7 @@ services:
       - key: PROXY_URL
         sync: false
 
-      # Optional radio configuration
+      # Optional radio and card images
       - key: RADIO_STATIONS
         sync: false
       - key: RADIO_IMG
